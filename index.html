@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Proposal Integrasi NIK pada SIPP</title>
+    <title>Proposal Integrasi NIK pada SIPP - Rifai Gusnian</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -12,12 +12,15 @@
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #ffffff;
-            overflow-x: hidden; /* Mencegah geser kanan-kiri pada level body */
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Mencegah body utama dari scrolling agar layout tetap stabil */
         }
 
         .slide-container {
             display: none;
             animation: slideIn 0.4s ease-out forwards;
+            width: 100%;
         }
 
         .slide-container.active {
@@ -34,19 +37,19 @@
             background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
+        /* Custom Scrollbar untuk area konten utama */
+        main::-webkit-scrollbar {
+            width: 5px;
         }
-        ::-webkit-scrollbar-track {
+        main::-webkit-scrollbar-track {
             background: #f1f1f1;
         }
-        ::-webkit-scrollbar-thumb {
+        main::-webkit-scrollbar-thumb {
             background: #065f46;
             border-radius: 10px;
         }
         
-        /* Mencegah input number menampilkan spinner */
+        /* Menghilangkan panah pada input number */
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
             -webkit-appearance: none;
@@ -54,85 +57,85 @@
         }
     </style>
 </head>
-<body class="antialiased text-slate-900 overflow-x-hidden">
+<body class="antialiased text-slate-900">
 
-    <!-- Layout Wrapper: Full Screen with proper overflow handling -->
+    <!-- Container Utama: Full Screen -->
     <div class="flex flex-col h-screen w-full bg-white overflow-hidden">
         
-        <!-- Compact Fixed Header -->
-        <header class="court-gradient p-3 md:p-4 text-white flex justify-between items-center shadow-md z-30 flex-shrink-0">
+        <!-- HEADER FIXED (Kecil & Elegan) -->
+        <header class="court-gradient p-3 md:p-4 text-white flex justify-between items-center shadow-lg z-50 flex-shrink-0">
             <div class="flex items-center gap-2 md:gap-3">
                 <div class="bg-white/20 p-1.5 md:p-2 rounded-lg">
-                    <i class="fas fa-gavel text-base md:text-xl"></i>
+                    <i class="fas fa-gavel text-sm md:text-xl"></i>
                 </div>
                 <div>
-                    <h1 class="text-xs md:text-lg font-extrabold tracking-tight uppercase leading-none">Mahkamah Agung RI</h1>
-                    <p class="text-[7px] md:text-[9px] text-emerald-200 opacity-90 uppercase tracking-[0.15em] font-medium mt-0.5">SIPP Modernization v3.4</p>
+                    <h1 class="text-[10px] md:text-lg font-extrabold tracking-tight uppercase leading-none">Mahkamah Agung RI</h1>
+                    <p class="text-[6px] md:text-[9px] text-emerald-200 opacity-90 uppercase tracking-[0.15em] font-medium mt-0.5">SIPP Modernization v3.5</p>
                 </div>
             </div>
-            <div id="slide-indicator" class="bg-black/20 backdrop-blur-md px-3 py-1 rounded-full text-[9px] md:text-xs font-bold border border-white/10 whitespace-nowrap">
+            <div id="slide-indicator" class="bg-black/20 backdrop-blur-md px-3 py-1 rounded-full text-[8px] md:text-xs font-bold border border-white/10 whitespace-nowrap">
                 Slide 1 / 5
             </div>
         </header>
 
-        <!-- Dynamic Content Area -->
-        <main class="flex-grow overflow-y-auto overflow-x-hidden relative z-10 px-4 py-6 md:px-12 md:py-12 lg:px-24">
+        <!-- AREA KONTEN (Main scroll area) -->
+        <main class="flex-grow overflow-y-auto overflow-x-hidden relative z-10 px-5 py-8 md:px-12 md:py-12 lg:px-24">
             
             <!-- Slide 1: Hero -->
-            <div id="slide-1" class="slide-container active h-full items-center justify-center text-center max-w-5xl mx-auto py-8">
-                <div class="mb-5 md:mb-7 p-5 bg-emerald-50 rounded-full inline-block shadow-sm">
-                    <i class="fas fa-fingerprint text-emerald-700 text-4xl md:text-6xl"></i>
+            <div id="slide-1" class="slide-container active h-full items-center justify-center text-center max-w-4xl mx-auto py-10">
+                <div class="mb-6 p-5 bg-emerald-50 rounded-full inline-block shadow-sm">
+                    <i class="fas fa-fingerprint text-emerald-700 text-5xl md:text-7xl"></i>
                 </div>
-                <h2 class="text-2xl md:text-5xl font-black text-slate-900 mb-5 leading-tight">Integrasi NIK Nasional <br class="hidden sm:block"> pada Database SIPP</h2>
-                <p class="text-sm md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                <h2 class="text-2xl md:text-5xl font-black text-slate-900 mb-6 leading-tight text-center">Integrasi NIK Nasional <br class="hidden sm:block"> pada Database SIPP</h2>
+                <p class="text-sm md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed text-center">
                     Mewujudkan ekosistem data peradilan yang terhubung untuk pelacakan rekam jejak kriminal yang presisi dan transparan.
                 </p>
-                <div class="mt-6 md:mt-10 flex flex-wrap justify-center gap-2 md:gap-3">
-                    <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 rounded-lg text-[9px] md:text-xs font-bold uppercase tracking-widest border border-emerald-200">Keamanan Data</span>
-                    <span class="px-3 py-1.5 bg-blue-100 text-blue-800 rounded-lg text-[9px] md:text-xs font-bold uppercase tracking-widest border border-blue-200">Integritas</span>
-                    <span class="px-3 py-1.5 bg-amber-100 text-amber-800 rounded-lg text-[9px] md:text-xs font-bold uppercase tracking-widest border border-amber-200">Efisiensi</span>
+                <div class="mt-8 flex flex-wrap justify-center gap-2 md:gap-3">
+                    <span class="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-lg text-[9px] md:text-xs font-bold uppercase border border-emerald-200">Keamanan Data</span>
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-lg text-[9px] md:text-xs font-bold uppercase border border-blue-200">Integritas</span>
+                    <span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-lg text-[9px] md:text-xs font-bold uppercase border border-amber-200">Efisiensi</span>
                 </div>
             </div>
 
             <!-- Slide 2: Masalah -->
             <div id="slide-2" class="slide-container max-w-6xl mx-auto w-full">
                 <h2 class="text-xl md:text-3xl font-extrabold text-slate-900 mb-1">Tantangan Strategis</h2>
-                <p class="text-slate-500 mb-6 md:mb-10 text-xs md:text-base">Kondisi eksisting yang memerlukan intervensi teknologi segera.</p>
+                <p class="text-slate-500 mb-8 text-xs md:text-base">Kondisi eksisting yang memerlukan intervensi teknologi segera.</p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                    <div class="p-5 md:p-6 bg-slate-50 rounded-2xl border border-slate-100 flex gap-4 md:gap-5 items-start">
-                        <div class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-lg shadow-inner">
+                    <div class="p-5 bg-slate-50 rounded-2xl border border-slate-100 flex gap-4 items-start">
+                        <div class="flex-shrink-0 w-10 h-10 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-lg shadow-inner">
                             <i class="fas fa-database"></i>
                         </div>
                         <div>
-                            <h3 class="text-base md:text-lg font-bold text-slate-800 mb-1">Data Silo</h3>
+                            <h3 class="text-base font-bold text-slate-800 mb-1">Data Silo</h3>
                             <p class="text-[11px] md:text-sm text-slate-600 leading-relaxed">Informasi perkara masih terfragmentasi di tiap Satker tanpa sinkronisasi terpusat.</p>
                         </div>
                     </div>
-                    <div class="p-5 md:p-6 bg-slate-50 rounded-2xl border border-slate-100 flex gap-4 md:gap-5 items-start">
-                        <div class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-lg shadow-inner">
+                    <div class="p-5 bg-slate-50 rounded-2xl border border-slate-100 flex gap-4 items-start">
+                        <div class="flex-shrink-0 w-10 h-10 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-lg shadow-inner">
                             <i class="fas fa-mask"></i>
                         </div>
                         <div>
-                            <h3 class="text-base md:text-lg font-bold text-slate-800 mb-1">Identitas Anonim</h3>
+                            <h3 class="text-base font-bold text-slate-800 mb-1">Identitas Anonim</h3>
                             <p class="text-[11px] md:text-sm text-slate-600 leading-relaxed">Potensi penggunaan identitas palsu karena belum ada validasi NIK nasional yang ketat.</p>
                         </div>
                     </div>
-                    <div class="p-5 md:p-6 bg-slate-50 rounded-2xl border border-slate-100 flex gap-4 md:gap-5 items-start">
-                        <div class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center text-lg shadow-inner">
+                    <div class="p-5 bg-slate-50 rounded-2xl border border-slate-100 flex gap-4 items-start">
+                        <div class="flex-shrink-0 w-10 h-10 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center text-lg shadow-inner">
                             <i class="fas fa-search-minus"></i>
                         </div>
                         <div>
-                            <h3 class="text-base md:text-lg font-bold text-slate-800 mb-1">Residivis Tidak Terdeteksi</h3>
+                            <h3 class="text-base font-bold text-slate-800 mb-1">Residivis Tidak Terdeteksi</h3>
                             <p class="text-[11px] md:text-sm text-slate-600 leading-relaxed">Hakim sulit mengetahui riwayat perkara terdakwa di pengadilan wilayah lain.</p>
                         </div>
                     </div>
-                    <div class="p-5 md:p-6 bg-slate-50 rounded-2xl border border-slate-100 flex gap-4 md:gap-5 items-start">
-                        <div class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center text-lg shadow-inner">
+                    <div class="p-5 bg-slate-50 rounded-2xl border border-slate-100 flex gap-4 items-start">
+                        <div class="flex-shrink-0 w-10 h-10 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center text-lg shadow-inner">
                             <i class="fas fa-file-signature"></i>
                         </div>
                         <div>
-                            <h3 class="text-base md:text-lg font-bold text-slate-800 mb-1">Birokrasi Manual</h3>
+                            <h3 class="text-base font-bold text-slate-800 mb-1">Birokrasi Manual</h3>
                             <p class="text-[11px] md:text-sm text-slate-600 leading-relaxed">Koordinasi antar wilayah masih bersifat administratif konvensional dan lambat.</p>
                         </div>
                     </div>
@@ -141,35 +144,35 @@
 
             <!-- Slide 3: Solusi -->
             <div id="slide-3" class="slide-container max-w-6xl mx-auto w-full">
-                <h2 class="text-xl md:text-3xl font-extrabold text-slate-900 mb-8">Arsitektur SIPP Modern</h2>
+                <h2 class="text-xl md:text-3xl font-extrabold text-slate-900 mb-8 text-center">Arsitektur SIPP Modern</h2>
                 <div class="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-                    <div class="space-y-5 md:space-y-8">
-                        <div class="flex gap-4 md:gap-6">
-                            <div class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-emerald-600 text-white rounded-xl flex items-center justify-center font-bold text-base shadow-lg shadow-emerald-100">1</div>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-emerald-50 rounded-2xl border border-emerald-100 flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-emerald-600 text-white rounded-lg flex items-center justify-center font-bold">1</div>
                             <div>
-                                <h4 class="font-bold text-base md:text-xl text-slate-800">API Dukcapil Hub</h4>
-                                <p class="text-[11px] md:text-sm text-slate-500 mt-1 leading-relaxed">Validasi identitas secara real-time langsung ke data kependudukan nasional.</p>
+                                <h4 class="font-bold text-slate-800 text-sm md:text-base">API Dukcapil Hub</h4>
+                                <p class="text-[10px] md:text-sm text-slate-500 mt-1 leading-relaxed">Validasi identitas secara real-time langsung ke data kependudukan nasional.</p>
                             </div>
                         </div>
-                        <div class="flex gap-4 md:gap-6">
-                            <div class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-emerald-600 text-white rounded-xl flex items-center justify-center font-bold text-base shadow-lg shadow-emerald-100">2</div>
+                        <div class="p-4 bg-white border border-slate-100 rounded-2xl flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-emerald-600 text-white rounded-lg flex items-center justify-center font-bold">2</div>
                             <div>
-                                <h4 class="font-bold text-base md:text-xl text-slate-800">Database Terintegrasi</h4>
-                                <p class="text-[11px] md:text-sm text-slate-500 mt-1 leading-relaxed">Metadata perkara se-Indonesia dikelola dalam satu jalur sinkronisasi.</p>
+                                <h4 class="font-bold text-slate-800 text-sm md:text-base">Database Terintegrasi</h4>
+                                <p class="text-[10px] md:text-sm text-slate-500 mt-1 leading-relaxed">Metadata perkara se-Indonesia dikelola dalam satu jalur sinkronisasi.</p>
                             </div>
                         </div>
-                        <div class="flex gap-4 md:gap-6">
-                            <div class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-emerald-600 text-white rounded-xl flex items-center justify-center font-bold text-base shadow-lg shadow-emerald-100">3</div>
+                        <div class="p-4 bg-white border border-slate-100 rounded-2xl flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-emerald-600 text-white rounded-lg flex items-center justify-center font-bold">3</div>
                             <div>
-                                <h4 class="font-bold text-base md:text-xl text-slate-800">Dashboard Interaktif</h4>
-                                <p class="text-[11px] md:text-sm text-slate-500 mt-1 leading-relaxed">Antarmuka bagi Hakim untuk memantau rekam jejak nasional terdakwa.</p>
+                                <h4 class="font-bold text-slate-800 text-sm md:text-base">Dashboard Interaktif</h4>
+                                <p class="text-[10px] md:text-sm text-slate-500 mt-1 leading-relaxed">Antarmuka bagi Hakim untuk memantau rekam jejak nasional terdakwa.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-slate-900 p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] text-center shadow-2xl relative overflow-hidden">
-                        <i class="fas fa-network-wired text-4xl md:text-6xl text-emerald-400 mb-4 md:mb-6"></i>
+                    <div class="bg-slate-900 p-10 rounded-[2.5rem] text-center shadow-2xl relative overflow-hidden">
+                        <i class="fas fa-network-wired text-4xl md:text-6xl text-emerald-400 mb-4"></i>
                         <h4 class="text-lg md:text-2xl font-bold text-white mb-2 italic">Interoperabilitas Data</h4>
-                        <p class="text-slate-400 text-[10px] md:text-sm leading-relaxed max-w-xs mx-auto">
+                        <p class="text-slate-400 text-[10px] leading-relaxed max-w-xs mx-auto">
                             Menghubungkan PN, PT, dan MA dalam satu jalur data yang aman.
                         </p>
                     </div>
@@ -178,27 +181,27 @@
 
             <!-- Slide 4: Demo -->
             <div id="slide-4" class="slide-container max-w-4xl mx-auto w-full">
-                <div class="text-center mb-6 md:mb-8">
+                <div class="text-center mb-6">
                     <h2 class="text-xl md:text-3xl font-extrabold text-slate-900 mb-2">Uji Coba Prototipe</h2>
-                    <p class="text-slate-500 text-xs md:text-sm">Simulasi penarikan data dari database nasional berbasis NIK.</p>
+                    <p class="text-slate-500 text-xs md:text-sm text-center">Simulasi penarikan data dari database nasional berbasis NIK.</p>
                 </div>
                 
-                <div class="bg-slate-50 p-5 md:p-10 rounded-[2rem] border border-slate-200">
-                    <div class="mb-6 p-4 md:p-5 bg-white rounded-2xl border border-emerald-100 shadow-sm">
-                        <h4 class="text-[10px] font-black text-emerald-700 uppercase tracking-widest mb-3">Petunjuk Demo</h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            <div class="p-2.5 bg-red-50 rounded-lg border border-red-100">
+                <div class="bg-slate-50 p-6 md:p-10 rounded-[2.5rem] border border-slate-200">
+                    <div class="mb-6 p-5 bg-white rounded-2xl border border-emerald-100 shadow-sm text-center">
+                        <p class="text-[10px] font-black text-emerald-700 uppercase tracking-widest mb-2">Petunjuk Demo</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
+                            <div class="p-2.5 bg-red-50 rounded-xl border border-red-100 text-center">
                                 <p class="text-[9px] font-bold text-red-800 uppercase">Skenario A: Residivis</p>
-                                <p class="text-[10px] text-red-600 mt-0.5">Digit terakhir <b>GANJIL</b> (contoh: 1, 3, 5).</p>
+                                <p class="text-[10px] text-red-600 mt-0.5">Digit terakhir <b>GANJIL</b> (1, 3, 5).</p>
                             </div>
-                            <div class="p-2.5 bg-emerald-50 rounded-lg border border-emerald-100">
+                            <div class="p-2.5 bg-emerald-50 rounded-xl border border-emerald-100 text-center">
                                 <p class="text-[9px] font-bold text-emerald-800 uppercase">Skenario B: Bersih</p>
-                                <p class="text-[10px] text-emerald-600 mt-0.5">Digit terakhir <b>GENAP</b> (contoh: 0, 2, 4).</p>
+                                <p class="text-[10px] text-emerald-600 mt-0.5">Digit terakhir <b>GENAP</b> (0, 2, 4).</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="flex flex-col gap-3">
+                    <div class="flex flex-col gap-2">
                         <div class="flex flex-col md:flex-row gap-3">
                             <input type="number" id="nik-input" placeholder="Masukkan 16 angka NIK..." 
                                    oninput="validateInputLength()"
@@ -207,19 +210,19 @@
                                 <i class="fas fa-search"></i> CARI DATA
                             </button>
                         </div>
-                        <p id="error-msg" class="hidden text-red-500 text-[10px] md:text-xs font-bold px-1 flex items-center gap-1">
+                        <p id="error-msg" class="hidden text-red-500 text-[10px] md:text-xs font-bold px-1 mt-1 text-center">
                             <i class="fas fa-info-circle"></i> NIK tidak valid: Harus tepat 16 digit.
                         </p>
                     </div>
 
-                    <div id="simulation-result" class="mt-8 hidden bg-white p-5 md:p-7 rounded-2xl border border-slate-100 shadow-sm min-h-[200px] flex flex-col items-center justify-center">
+                    <div id="simulation-result" class="mt-8 hidden bg-white p-6 rounded-3xl border border-slate-100 shadow-sm min-h-[200px] flex flex-col items-center justify-center">
                         <div id="loading-state" class="flex flex-col items-center py-4 hidden">
                             <div class="w-10 h-10 border-4 border-emerald-100 border-t-emerald-600 rounded-full animate-spin"></div>
-                            <p class="mt-3 text-[9px] font-bold text-slate-400 uppercase tracking-widest">Sinkronisasi Nasional...</p>
+                            <p class="mt-3 text-[9px] font-bold text-slate-400 uppercase tracking-widest text-center">Sinkronisasi Nasional...</p>
                         </div>
                         
                         <div id="data-found" class="hidden w-full space-y-3">
-                            <div class="bg-red-50 border-l-4 border-red-600 p-4 rounded-lg">
+                            <div class="bg-red-50 border-l-4 border-red-600 p-4 rounded-xl">
                                 <h5 class="text-red-800 font-extrabold text-[11px] uppercase tracking-tight">Peringatan: Residivis Terdeteksi</h5>
                                 <p class="text-red-700 text-[10px] mt-0.5">Ditemukan riwayat pidana inkraht di database nasional.</p>
                             </div>
@@ -240,58 +243,65 @@
                                 <i class="fas fa-check-double text-3xl"></i>
                             </div>
                             <h4 class="text-base font-bold text-emerald-900 uppercase">Data Bersih</h4>
-                            <p class="text-[11px] text-slate-500 mt-1">Tidak ditemukan catatan kriminal di PN se-Indonesia.</p>
+                            <p class="text-[11px] text-slate-500 mt-1 text-center">Tidak ditemukan catatan kriminal di PN se-Indonesia.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 5: Closing -->
-            <div id="slide-5" class="slide-container h-full items-center justify-center text-center max-w-4xl mx-auto py-4">
-                <h2 class="text-2xl md:text-5xl font-black text-slate-900 mb-8 leading-tight">Menuju Peradilan <br> Berkelas Dunia</h2>
+            <!-- Slide 5: Penutup -->
+            <div id="slide-5" class="slide-container h-full items-center justify-center text-center max-w-4xl mx-auto py-10">
+                <h2 class="text-2xl md:text-5xl font-black text-slate-900 mb-8 leading-tight text-center">Menuju Peradilan <br> Berkelas Dunia</h2>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full mb-10">
-                    <div class="p-6 md:p-8 bg-slate-50 rounded-2xl border border-slate-100">
+                    <div class="p-6 md:p-8 bg-slate-50 rounded-2xl border border-slate-100 text-center">
                         <p class="text-3xl md:text-4xl font-black text-emerald-700">100%</p>
                         <p class="text-[9px] font-bold text-slate-400 mt-2 uppercase tracking-widest">Integritas Data</p>
                     </div>
-                    <div class="p-6 md:p-8 bg-emerald-700 text-white rounded-2xl shadow-xl shadow-emerald-200">
+                    <div class="p-6 md:p-8 bg-emerald-700 text-white rounded-2xl shadow-xl shadow-emerald-200 text-center">
                         <p class="text-3xl md:text-4xl font-black">Real-Time</p>
                         <p class="text-[9px] font-bold text-emerald-100 mt-2 uppercase tracking-widest">Akses Keamanan</p>
                     </div>
-                    <div class="p-6 md:p-8 bg-slate-50 rounded-2xl border border-slate-100">
+                    <div class="p-6 md:p-8 bg-slate-50 rounded-2xl border border-slate-100 text-center">
                         <p class="text-3xl md:text-4xl font-black text-emerald-700">Paperless</p>
                         <p class="text-[9px] font-bold text-slate-400 mt-2 uppercase tracking-widest">Birokrasi Digital</p>
                     </div>
                 </div>
                 
-                <p class="text-sm md:text-lg text-slate-500 italic mb-8 max-w-xl mx-auto leading-relaxed">
+                <p class="text-sm md:text-lg text-slate-500 italic mb-8 max-w-xl mx-auto leading-relaxed text-center">
                     "Keadilan tidak hanya harus ditegakkan, tapi juga harus terlihat ditegakkan secara akurat."
                 </p>
                 <div class="flex flex-col sm:flex-row gap-3 justify-center">
                     <button onclick="showSlide(1)" class="px-7 py-3 bg-slate-900 text-white text-sm font-bold rounded-xl hover:bg-black transition-all uppercase tracking-wide">Mulai Lagi</button>
-                    <div class="px-7 py-3 bg-emerald-50 text-emerald-800 text-sm font-bold rounded-xl border border-emerald-100 flex items-center justify-center gap-2">
-                        <i class="fas fa-check-circle"></i> PROPOSAL SIAP
-                    </div>
                 </div>
             </div>
 
         </main>
 
-        <!-- Full Width Footer Navigation (Fixed) -->
-        <footer class="bg-white border-t border-slate-100 p-3 md:p-5 flex flex-row justify-between items-center z-30 flex-shrink-0">
-            <button onclick="prevSlide()" class="flex items-center gap-1.5 px-4 py-2 text-slate-400 hover:text-slate-900 font-bold transition-all text-[11px] md:text-sm">
-                <i class="fas fa-chevron-left"></i> <span class="hidden sm:inline uppercase">Sebelumnya</span>
-            </button>
-            
-            <div class="flex gap-1.5 md:gap-2" id="dots-container">
-                <!-- Dots generated by JS -->
-            </div>
+        <!-- FOOTER NAVIGASI & ATRIBUSI (Fixed) -->
+        <div class="flex-shrink-0 z-50">
+            <!-- Navigation Bar -->
+            <footer class="bg-white border-t border-slate-100 p-3 md:p-5 flex flex-row justify-between items-center shadow-inner">
+                <button onclick="prevSlide()" class="flex items-center gap-1.5 px-4 py-2 text-slate-400 hover:text-slate-900 font-bold transition-all text-[11px] md:text-sm">
+                    <i class="fas fa-chevron-left"></i> <span class="hidden sm:inline uppercase">Sebelumnya</span>
+                </button>
+                
+                <div class="flex gap-1.5 md:gap-2" id="dots-container">
+                    <!-- Dots generated by JS -->
+                </div>
 
-            <button onclick="nextSlide()" id="next-btn" class="flex items-center gap-1.5 px-6 py-2.5 bg-emerald-700 text-white rounded-xl hover:bg-emerald-800 shadow-lg shadow-emerald-200 transition-all font-black text-[11px] md:text-sm">
-                <span id="btn-text" class="uppercase">Selanjutnya</span> <i id="btn-icon" class="fas fa-arrow-right"></i>
-            </button>
-        </footer>
+                <button onclick="nextSlide()" id="next-btn" class="flex items-center gap-1.5 px-6 py-2.5 bg-emerald-700 text-white rounded-xl hover:bg-emerald-800 shadow-lg shadow-emerald-200 transition-all font-black text-[11px] md:text-sm">
+                    <span id="btn-text" class="uppercase">Selanjutnya</span> <i id="btn-icon" class="fas fa-arrow-right"></i>
+                </button>
+            </footer>
+
+            <!-- FOOTER ATRIBUSI RIFAI (Custom Request) -->
+            <div class="bg-slate-50 py-2 border-t border-slate-100 text-center">
+                <p class="text-[9px] md:text-[11px] text-slate-400 font-medium tracking-tight">
+                    <i class="fas fa-code mr-1"></i> Ini hanya demo yang dibuat oleh <span class="text-emerald-700 font-bold">Rifai Gusnian</span>
+                </p>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -306,7 +316,7 @@
             dotsContainer.innerHTML = '';
             for (let i = 1; i <= totalSlides; i++) {
                 const dot = document.createElement('div');
-                dot.className = `h-1 rounded-full transition-all duration-300 cursor-pointer ${i === currentSlide ? 'bg-emerald-600 w-6 md:w-12' : 'bg-slate-200 w-1.5 md:w-3'}`;
+                dot.className = `h-1 rounded-full transition-all duration-300 cursor-pointer ${i === currentSlide ? 'bg-emerald-600 w-8 md:w-16' : 'bg-slate-200 w-2 md:w-4'}`;
                 dot.onclick = () => showSlide(i);
                 dotsContainer.appendChild(dot);
             }
@@ -328,7 +338,9 @@
         }
 
         function showSlide(n) {
+            // Reset scroll to top of main
             document.querySelector('main').scrollTop = 0;
+
             document.querySelectorAll('.slide-container').forEach(s => s.classList.remove('active'));
             document.getElementById(`slide-${n}`).classList.add('active');
             currentSlide = n;
